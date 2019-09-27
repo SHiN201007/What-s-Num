@@ -8,15 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var button: UIButton!
+  
+  var num = arc4random_uniform(10)
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     
+  }
+  
+  // キーボードを閉じる
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    textField.resignFirstResponder()
   }
   
 }
